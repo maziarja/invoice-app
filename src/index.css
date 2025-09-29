@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "League Spartan", sans-serif;
+
+  --color-color-1: #7c5dfa;
+  --color-color-2: #9277ff;
+  --color-color-3: #1e2139;
+  --color-color-4: #252945;
+  --color-color-5: #dfe3fa;
+  --color-color-6: #888eb0;
+  --color-color-7: #7e88c3;
+  --color-color-8: #0c0e16;
+  --color-color-9: #ec5757;
+  --color-color-10: #ff9797;
+  --color-color-11: #f8f8fb;
+  --color-color-12: #141625;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer components {
+  .dark {
+    --color-color-11: #0c0e16;
+    --color-color-8: #ffffff;
+  }
+}
+
+@layer components {
+  .text-heading-l {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 33px;
+    letter-spacing: -1;
+  }
+  .text-heading-m {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 22px;
+    letter-spacing: -0.75;
+  }
+
+  .text-heading-s {
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: -0.25;
+  }
+
+  .text-heading-s-variant {
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 15px;
+    letter-spacing: -0.25;
+  }
+
+  .text-body {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: -0.1;
+  }
+
+  .text-body-variant {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: -0.25;
+  }
+}
+
+/* iOS Safari fix: prevent zoom on input focus */
+@supports (-webkit-touch-callout: none) {
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* only applies on iOS */
+  }
+}
+
+/* Removing spinner on input type number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
