@@ -28,6 +28,7 @@ function EditItemContainer({
 
   useEffect(() => {
     onEditItem(item.id, "total", total.toString());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [item.id, total]);
 
   return (

@@ -125,6 +125,7 @@ export async function markInvoiceAsPaidApi(invoiceId: string, userId: string) {
 
     // update invoiceId and userId for this initial items array
     if (items && newInvoice?.id) {
+      // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
       const newItems = items.map(({ id, ...item }) => ({
         ...item,
         // id: crypto.randomUUID(),
@@ -171,7 +172,7 @@ export async function updateInvoice(
 ) {
   // 1) If invoice is initial
   if (!newInvoice.invoice.userId) {
-    // Create new sender address for new invoice
+    // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
     const { id: senderId, ...senderAddressWithoutId } =
       newInvoice.senderAddress;
     const { data: newSenderAddress, error: newSenderAddressError } =
@@ -187,6 +188,7 @@ export async function updateInvoice(
     }
 
     // Create new client address for new invoice
+    // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
     const { id: clientId, ...clientAddressWithoutId } =
       newInvoice.clientAddress;
     const { data: newClientAddress, error: newClientAddressError } =
@@ -223,6 +225,7 @@ export async function updateInvoice(
 
     // Create new items for new invoice
     if (editItems && newInv?.id) {
+      // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
       const newItems = editItems.map(({ id, ...item }) => ({
         ...item,
         invoiceId: newInv.id,
@@ -296,6 +299,7 @@ export async function updateInvoice(
 
       // 2) Insert new items
       if (editItems.length > 0) {
+        // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
         const newItems = editItems.map(({ id, ...item }) => ({
           ...item,
           invoiceId: newInvoice.invoice.id,
@@ -373,6 +377,7 @@ export async function createInvoiceApi(
   userId: string | undefined,
 ) {
   // 1) create sender address
+  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   const { id: senderId, ...senderAddress } = newInvoice.senderAddress;
   const { data: newSenderAddress, error: newSenderAddressError } =
     await supabase
@@ -386,6 +391,7 @@ export async function createInvoiceApi(
   }
 
   // 2) create client address
+  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   const { id: clientId, ...clientAddress } = newInvoice.clientAddress;
   const { data: newClientAddress, error: newClientAddressError } =
     await supabase
@@ -400,12 +406,19 @@ export async function createInvoiceApi(
 
   // 3) create invoice
   const {
+    // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
     id: invoiceId,
+    // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
     userId: uId,
+    // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
     clientAddressId,
+    // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
     senderAddressId,
+    // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
     defaultId,
+    // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
     createdAt,
+    // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
     status: invoiceStatus,
     ...invoice
   } = newInvoice.invoice;
@@ -435,6 +448,7 @@ export async function createInvoiceApi(
   // 4) create items for newInvoice
   if (newInvoice.items && newInvoice.items.length > 0) {
     newInvoice.items.map(async (item) => {
+      // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
       const { id, invoiceId, userId: urId, ...itemWithoutId } = item;
       const { error: newItemError } = await supabase
         .from("items")

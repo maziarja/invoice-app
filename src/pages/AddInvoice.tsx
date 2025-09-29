@@ -23,7 +23,7 @@ function AddInvoice() {
   const calenderRef = useOutsideClick(() => setOpenCalender(false));
   const paymentRef = useOutsideClick(() => setOpenPaymentTerms(false));
   const [editItems, setEditItems] = useState(items ?? []);
-  const { isPending, createNewInvoice } = useCreateInvoice();
+  const { createNewInvoice } = useCreateInvoice();
   const [error, setError] = useState("");
 
   useEffect(() => {
