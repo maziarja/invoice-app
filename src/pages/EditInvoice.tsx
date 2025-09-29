@@ -14,7 +14,7 @@ import { useItem } from "../features/items/useItem";
 import { useUpdateInvoice } from "../features/invoice/useUpdateInvoice";
 
 function EditInvoice() {
-  const { isLoading, invoice: invoiceObj } = useInvoice();
+  const { invoice: invoiceObj } = useInvoice();
   const invoice = invoiceObj?.invoice;
   const { items } = useItem();
   const navigate = useNavigate();
