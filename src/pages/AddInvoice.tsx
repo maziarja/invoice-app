@@ -28,11 +28,18 @@ function AddInvoice() {
 
   useEffect(() => {
     // on mount
+    const html = document.documentElement;
     document.body.style.overflow = "hidden";
+    html.style.overflow = "hidden";
+    html.style.position = "fixed"; // prevents bouncing
+    html.style.width = "100%";
     window.scrollTo(0, 0);
     // on unmount
     return () => {
       document.body.style.overflow = "auto";
+      html.style.overflow = "auto";
+      html.style.position = "";
+      html.style.width = "";
     };
   }, []);
 
