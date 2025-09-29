@@ -1,8 +1,8 @@
 import { createContext, useContext, useState } from "react";
 
 type DarkModeContextType = {
-  darkMode: boolean | undefined;
-  setDarkMode: React.Dispatch<React.SetStateAction<boolean | undefined>>;
+  darkMode: boolean;
+  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const DarkModeContext = createContext<DarkModeContextType | undefined>(
@@ -19,6 +19,7 @@ function DarkModeProvider({ children }: DarkModeProviderType) {
     if (storedValue) {
       return storedValue === "false" ? false : true;
     }
+    return false;
   });
 
   return (
